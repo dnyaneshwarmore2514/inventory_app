@@ -22,3 +22,10 @@ def test_remove_too_many_raises():
     inv.add("cup", 1)
     with pytest.raises(OutOfStockError):
         inv.remove("cup", 5)
+
+def test_items_returns_copy():
+    inv = Inventory()
+    inv.add("pen", 2)
+    snapshot = inv.items()
+    snapshot["pen"] = 99
+    assert inv.count("pen") == 2

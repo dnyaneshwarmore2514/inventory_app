@@ -20,3 +20,6 @@ class Inventory:
 
     def count(self, name: str) -> int:
         return self._items.get(name, 0)
+    
+    def items(self) -> dict[str, int]:
+        return dict(self._items) 
